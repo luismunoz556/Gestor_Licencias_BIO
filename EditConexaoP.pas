@@ -10,7 +10,8 @@ uses
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client,
   RemoteDB.Drivers.FireDac, RemoteDB.Client.Database, FireDAC.Phys.MSSQL,
-  FireDAC.Phys.MSSQLDef, UBIOSXDataset;
+  FireDAC.Phys.MSSQLDef, UBIOSXDataset,FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef
+  ,FireDAC.Phys.Oracle;
 
 type
   TEditConexao = class(TForm)
@@ -71,6 +72,7 @@ begin
       begin
          fcon.DriverName       := 'Ora';
          fcon.Params.DriverID  := 'Ora';
+         ip := '';
       end
    else if banco = 'FireBird' then
       begin
@@ -84,9 +86,9 @@ begin
       end;
    idx := fcon.Params.IndexOfName('Server');
    fcon.Params[idx]      := 'Server=' + ip;
-   fcon.Params.Database  := bd;
-   fcon.Params.UserName  := usuario;
-   fcon.Params.Password  := pass;
+   fcon.Params.Database  := edtBD.Text;
+   fcon.Params.UserName  := edtUsr.Text;
+   fcon.Params.Password  := edtPass.Text;
    try
       testBD.Connection := TFireDacConnectionAdapter.Create(fcon, False);
       testBD.Connected  := true;

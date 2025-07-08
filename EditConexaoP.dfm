@@ -209,6 +209,7 @@ object EditConexao: TEditConexao
       'Password=biosalc'
       'Server=192.168.0.114'
       'User_Name=sa')
+    LoginPrompt = False
     Left = 440
     Top = 8
   end
