@@ -18,7 +18,7 @@ object EditConexao: TEditConexao
     Top = 64
     Width = 63
     Height = 15
-    Caption = 'IpConexion '
+    Caption = 'Ip Conexion'
   end
   object lbUsuario: TLabel
     Left = 101
