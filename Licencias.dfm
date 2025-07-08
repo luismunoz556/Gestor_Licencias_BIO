@@ -1,0 +1,689 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Gestor de Licencia'
+  ClientHeight = 451
+  ClientWidth = 946
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  Position = poScreenCenter
+  OnShow = FormShow
+  DesignSize = (
+    946
+    451)
+  TextHeight = 15
+  object lblByName: TLabel
+    Left = 8
+    Top = 421
+    Width = 58
+    Height = 15
+    Caption = 'lblByName'
+  end
+  object pgcLicencias: TPageControl
+    Left = 40
+    Top = 32
+    Width = 728
+    Height = 353
+    ActivePage = EdicionAplicaciones
+    TabOrder = 0
+    object VisorLicencias: TTabSheet
+      Caption = 'VisorLicencias'
+      OnEnter = VisorLicenciasEnter
+      object gg: TBiosStringGrid
+        Left = 0
+        Top = 0
+        Width = 720
+        Height = 323
+        Align = alClient
+        Ctl3D = True
+        DrawingStyle = gdsClassic
+        FixedColor = clWhite
+        FixedCols = 0
+        RowCount = 1
+        FixedRows = 0
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goFixedRowDefAlign]
+        ParentCtl3D = False
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        OnDblClick = ggDblClick
+        OnClickCell = ggClickCell
+        ActiveCellFont.Charset = ANSI_CHARSET
+        ActiveCellFont.Color = 4474440
+        ActiveCellFont.Height = -16
+        ActiveCellFont.Name = 'Tahoma'
+        ActiveCellFont.Style = [fsBold]
+        ActiveCellColor = 15387318
+        ControlLook.FixedGradientFrom = clWhite
+        ControlLook.FixedGradientTo = clBtnFace
+        ControlLook.FixedGradientHoverFrom = 13619409
+        ControlLook.FixedGradientHoverTo = 12502728
+        ControlLook.FixedGradientHoverMirrorFrom = 12502728
+        ControlLook.FixedGradientHoverMirrorTo = 11254975
+        ControlLook.FixedGradientHoverBorder = 11645361
+        ControlLook.FixedGradientDownFrom = 8816520
+        ControlLook.FixedGradientDownTo = 7568510
+        ControlLook.FixedGradientDownMirrorFrom = 7568510
+        ControlLook.FixedGradientDownMirrorTo = 6452086
+        ControlLook.FixedGradientDownBorder = 11250603
+        ControlLook.DropDownHeader.Font.Charset = DEFAULT_CHARSET
+        ControlLook.DropDownHeader.Font.Color = clWindowText
+        ControlLook.DropDownHeader.Font.Height = -11
+        ControlLook.DropDownHeader.Font.Name = 'Segoe UI'
+        ControlLook.DropDownHeader.Font.Style = []
+        ControlLook.DropDownHeader.Visible = True
+        ControlLook.DropDownHeader.Buttons = <>
+        ControlLook.DropDownFooter.Font.Charset = DEFAULT_CHARSET
+        ControlLook.DropDownFooter.Font.Color = clWindowText
+        ControlLook.DropDownFooter.Font.Height = -11
+        ControlLook.DropDownFooter.Font.Name = 'Segoe UI'
+        ControlLook.DropDownFooter.Font.Style = []
+        ControlLook.DropDownFooter.Visible = True
+        ControlLook.DropDownFooter.Buttons = <>
+        ControlLook.ToggleSwitch.BackgroundBorderWidth = 1.000000000000000000
+        ControlLook.ToggleSwitch.ButtonBorderWidth = 1.000000000000000000
+        ControlLook.ToggleSwitch.CaptionFont.Charset = DEFAULT_CHARSET
+        ControlLook.ToggleSwitch.CaptionFont.Color = clWindowText
+        ControlLook.ToggleSwitch.CaptionFont.Height = -12
+        ControlLook.ToggleSwitch.CaptionFont.Name = 'Segoe UI'
+        ControlLook.ToggleSwitch.CaptionFont.Style = []
+        ControlLook.ToggleSwitch.Shadow = False
+        Filter = <>
+        FilterDropDown.Font.Charset = DEFAULT_CHARSET
+        FilterDropDown.Font.Color = clWindowText
+        FilterDropDown.Font.Height = -12
+        FilterDropDown.Font.Name = 'Segoe UI'
+        FilterDropDown.Font.Style = []
+        FilterDropDownClear = '(All)'
+        FilterEdit.TypeNames.Strings = (
+          'Starts with'
+          'Ends with'
+          'Contains'
+          'Not contains'
+          'Equal'
+          'Not equal'
+          'Larger than'
+          'Smaller than'
+          'Clear')
+        FixedRowHeight = 22
+        FixedFont.Charset = DEFAULT_CHARSET
+        FixedFont.Color = clWindowText
+        FixedFont.Height = -11
+        FixedFont.Name = 'Segoe UI'
+        FixedFont.Style = [fsBold]
+        FloatFormat = '%.2f'
+        HoverButtons.Buttons = <>
+        HTMLSettings.ImageFolder = 'images'
+        HTMLSettings.ImageBaseName = 'img'
+        PrintSettings.DateFormat = 'dd/mm/yyyy'
+        PrintSettings.Font.Charset = DEFAULT_CHARSET
+        PrintSettings.Font.Color = clWindowText
+        PrintSettings.Font.Height = -12
+        PrintSettings.Font.Name = 'Segoe UI'
+        PrintSettings.Font.Style = []
+        PrintSettings.FixedFont.Charset = DEFAULT_CHARSET
+        PrintSettings.FixedFont.Color = clWindowText
+        PrintSettings.FixedFont.Height = -12
+        PrintSettings.FixedFont.Name = 'Segoe UI'
+        PrintSettings.FixedFont.Style = []
+        PrintSettings.HeaderFont.Charset = DEFAULT_CHARSET
+        PrintSettings.HeaderFont.Color = clWindowText
+        PrintSettings.HeaderFont.Height = -12
+        PrintSettings.HeaderFont.Name = 'Segoe UI'
+        PrintSettings.HeaderFont.Style = []
+        PrintSettings.FooterFont.Charset = DEFAULT_CHARSET
+        PrintSettings.FooterFont.Color = clWindowText
+        PrintSettings.FooterFont.Height = -12
+        PrintSettings.FooterFont.Name = 'Segoe UI'
+        PrintSettings.FooterFont.Style = []
+        PrintSettings.PageNumSep = '/'
+        SearchFooter.ColorTo = 15790320
+        SearchFooter.FindNextCaption = 'Find &next'
+        SearchFooter.FindPrevCaption = 'Find &previous'
+        SearchFooter.Font.Charset = DEFAULT_CHARSET
+        SearchFooter.Font.Color = clWindowText
+        SearchFooter.Font.Height = -12
+        SearchFooter.Font.Name = 'Segoe UI'
+        SearchFooter.Font.Style = []
+        SearchFooter.HighLightCaption = 'Highlight'
+        SearchFooter.HintClose = 'Close'
+        SearchFooter.HintFindNext = 'Find next occurrence'
+        SearchFooter.HintFindPrev = 'Find previous occurrence'
+        SearchFooter.HintHighlight = 'Highlight occurrences'
+        SearchFooter.MatchCaseCaption = 'Match case'
+        SearchFooter.ResultFormat = '(%d of %d)'
+        SelectionTextColor = clWindowText
+        SortSettings.HeaderColorTo = clWhite
+        SortSettings.HeaderMirrorColor = clWhite
+        SortSettings.HeaderMirrorColorTo = clWhite
+        Version = '9.1.4.1'
+        ColWidths = (
+          64
+          82
+          157
+          64
+          64)
+        RowHeights = (
+          22)
+      end
+    end
+    object EdicionAplicaciones: TTabSheet
+      Caption = 'EdicionAplicaciones'
+      ImageIndex = 1
+      OnShow = EdicionAplicacionesShow
+      object lblRuta: TLabel
+        Left = 24
+        Top = 63
+        Width = 69
+        Height = 15
+        Caption = 'Ruta Maestra'
+      end
+      object lblVersion: TLabel
+        Left = 40
+        Top = 119
+        Width = 38
+        Height = 15
+        Caption = 'Version'
+      end
+      object lblSistema: TLabel
+        Left = 40
+        Top = 147
+        Width = 41
+        Height = 15
+        Caption = 'Sistema'
+      end
+      object lblLicencia: TLabel
+        Left = 40
+        Top = 175
+        Width = 43
+        Height = 15
+        Caption = 'Licencia'
+      end
+      object lblRutaAux: TLabel
+        Left = 41
+        Top = 95
+        Width = 44
+        Height = 15
+        Caption = 'Ruta Exe'
+      end
+      object btnAdd: TBiosGlowButton
+        Left = 440
+        Top = 4
+        Width = 49
+        Height = 36
+        Hint = 'Nuevo'
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        AntiAlias = aaAntiAlias
+        Caption = 'Nuevo'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ImageIndex = 6
+        Images = dtmImagem.VirtualImageList_bimEdicaoAtivo_32
+        NotesFont.Charset = DEFAULT_CHARSET
+        NotesFont.Color = clWindowText
+        NotesFont.Height = -11
+        NotesFont.Name = 'Tahoma'
+        NotesFont.Style = []
+        ParentFont = False
+        Rounded = True
+        ShowCaption = False
+        Transparent = True
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        OnClick = btnAddClick
+        Appearance.BorderColor = 16250613
+        Appearance.BorderColorHot = 16371364
+        Appearance.BorderColorCheckedHot = 11565130
+        Appearance.BorderColorDown = 14983778
+        Appearance.BorderColorChecked = 14983778
+        Appearance.BorderColorDisabled = 16250613
+        Appearance.Color = 16250613
+        Appearance.ColorTo = clNone
+        Appearance.ColorChecked = 16244937
+        Appearance.ColorCheckedTo = clNone
+        Appearance.ColorDisabled = 16250613
+        Appearance.ColorDisabledTo = clNone
+        Appearance.ColorDown = 16244937
+        Appearance.ColorDownTo = clNone
+        Appearance.ColorHot = 16248808
+        Appearance.ColorHotTo = clNone
+        Appearance.ColorMirror = clNone
+        Appearance.ColorMirrorTo = clNone
+        Appearance.ColorMirrorHot = clNone
+        Appearance.ColorMirrorHotTo = clNone
+        Appearance.ColorMirrorDown = clNone
+        Appearance.ColorMirrorDownTo = clNone
+        Appearance.ColorMirrorChecked = clNone
+        Appearance.ColorMirrorCheckedTo = clNone
+        Appearance.ColorMirrorDisabled = clNone
+        Appearance.ColorMirrorDisabledTo = clNone
+        Appearance.GradientHot = ggVertical
+        Appearance.GradientMirrorHot = ggVertical
+        Appearance.GradientDown = ggVertical
+        Appearance.GradientMirrorDown = ggVertical
+        Appearance.GradientChecked = ggVertical
+        Appearance.TextColorChecked = 3750459
+        Appearance.TextColorDown = 2303013
+        Appearance.TextColorHot = 2303013
+        Appearance.TextColorDisabled = 13948116
+        Layout = blGlyphLeftAdjusted
+        DropDownSplit = False
+      end
+      object cbbSistema: TscComboBox
+        Left = 104
+        Top = 144
+        Width = 145
+        Height = 22
+        FluentUIOpaque = False
+        ItemIndex = 0
+        Items.Strings = (
+          ''
+          'SIAGRI'
+          'SIMAN'
+          'SIGIND'
+          'SIFROTA'
+          'SGU'
+          'BIOSREPORT')
+        WordBreak = False
+        SelectionStyle = scstStyled
+        SelectionColor = clNone
+        SelectionTextColor = clHighlightText
+        ImageIndex = -1
+        ItemHeight = 16
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 1
+        StyleKind = scscbDefault
+        ShowFocusRect = True
+        OnChange = cbbSistemaChange
+      end
+      object cbbLicencia: TscComboBox
+        Left = 104
+        Top = 172
+        Width = 145
+        Height = 22
+        FluentUIOpaque = False
+        ItemIndex = -1
+        WordBreak = False
+        SelectionStyle = scstStyled
+        SelectionColor = clNone
+        SelectionTextColor = clHighlightText
+        ImageIndex = -1
+        ItemHeight = 16
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 2
+        StyleKind = scscbDefault
+        ShowFocusRect = True
+      end
+      object cbbVersion: TscComboBox
+        Left = 104
+        Top = 116
+        Width = 145
+        Height = 22
+        FluentUIOpaque = False
+        ItemIndex = 0
+        Items.Strings = (
+          ''
+          'V13'
+          'V14'
+          'V15')
+        WordBreak = False
+        SelectionStyle = scstStyled
+        SelectionColor = clNone
+        SelectionTextColor = clHighlightText
+        ImageIndex = -1
+        ItemHeight = 16
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 3
+        StyleKind = scscbDefault
+        ShowFocusRect = True
+        OnChange = cbbVersionChange
+      end
+      object edtRutaMaestra: TEdit
+        Left = 104
+        Top = 60
+        Width = 273
+        Height = 23
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 4
+      end
+      object btnRuta: TBiosGlowButton
+        Left = 391
+        Top = 63
+        Width = 20
+        Height = 20
+        Caption = 'object edtRutaMaestra: TEdit'
+        ImageIndex = 16
+        Images = dtmImagem.VirtualImageList_bimAcaoAtivo
+        NotesFont.Charset = DEFAULT_CHARSET
+        NotesFont.Color = clWindowText
+        NotesFont.Height = -11
+        NotesFont.Name = 'Tahoma'
+        NotesFont.Style = []
+        Rounded = True
+        Spacing = 4
+        Transparent = True
+        TabOrder = 5
+        OnClick = btnRutaClick
+        Appearance.BorderColor = 11382963
+        Appearance.BorderColorHot = 11565130
+        Appearance.BorderColorCheckedHot = 11565130
+        Appearance.BorderColorDown = 11565130
+        Appearance.BorderColorChecked = 13744549
+        Appearance.BorderColorDisabled = 13948116
+        Appearance.Color = clWhite
+        Appearance.ColorTo = clWhite
+        Appearance.ColorChecked = 16111818
+        Appearance.ColorCheckedTo = 16367008
+        Appearance.ColorDisabled = 15921906
+        Appearance.ColorDisabledTo = 15921906
+        Appearance.ColorDown = 16111818
+        Appearance.ColorDownTo = 16367008
+        Appearance.ColorHot = 16117985
+        Appearance.ColorHotTo = 16372402
+        Appearance.ColorMirror = clSilver
+        Appearance.ColorMirrorTo = clWhite
+        Appearance.ColorMirrorHot = 16107693
+        Appearance.ColorMirrorHotTo = 16775412
+        Appearance.ColorMirrorDown = 16102556
+        Appearance.ColorMirrorDownTo = 16768988
+        Appearance.ColorMirrorChecked = 16102556
+        Appearance.ColorMirrorCheckedTo = 16768988
+        Appearance.ColorMirrorDisabled = 11974326
+        Appearance.ColorMirrorDisabledTo = 15921906
+        Appearance.GradientHot = ggVertical
+        Appearance.GradientMirrorHot = ggVertical
+        Appearance.GradientDown = ggVertical
+        Appearance.GradientMirrorDown = ggVertical
+        Appearance.GradientChecked = ggVertical
+        Appearance.TextColorChecked = 3750459
+        Appearance.TextColorDown = 2303013
+        Appearance.TextColorHot = 2303013
+        Appearance.TextColorDisabled = 13948116
+        DropDownSplit = False
+      end
+      object btnRAux: TBiosGlowButton
+        Left = 391
+        Top = 90
+        Width = 20
+        Height = 20
+        Caption = 'object edtRutaMaestra: TEdit'
+        ImageIndex = 16
+        Images = dtmImagem.VirtualImageList_bimAcaoAtivo
+        NotesFont.Charset = DEFAULT_CHARSET
+        NotesFont.Color = clWindowText
+        NotesFont.Height = -11
+        NotesFont.Name = 'Tahoma'
+        NotesFont.Style = []
+        Rounded = True
+        Spacing = 4
+        Transparent = True
+        TabOrder = 6
+        OnClick = btnRAuxClick
+        Appearance.BorderColor = 11382963
+        Appearance.BorderColorHot = 11565130
+        Appearance.BorderColorCheckedHot = 11565130
+        Appearance.BorderColorDown = 11565130
+        Appearance.BorderColorChecked = 13744549
+        Appearance.BorderColorDisabled = 13948116
+        Appearance.Color = clWhite
+        Appearance.ColorTo = clWhite
+        Appearance.ColorChecked = 16111818
+        Appearance.ColorCheckedTo = 16367008
+        Appearance.ColorDisabled = 15921906
+        Appearance.ColorDisabledTo = 15921906
+        Appearance.ColorDown = 16111818
+        Appearance.ColorDownTo = 16367008
+        Appearance.ColorHot = 16117985
+        Appearance.ColorHotTo = 16372402
+        Appearance.ColorMirror = clSilver
+        Appearance.ColorMirrorTo = clWhite
+        Appearance.ColorMirrorHot = 16107693
+        Appearance.ColorMirrorHotTo = 16775412
+        Appearance.ColorMirrorDown = 16102556
+        Appearance.ColorMirrorDownTo = 16768988
+        Appearance.ColorMirrorChecked = 16102556
+        Appearance.ColorMirrorCheckedTo = 16768988
+        Appearance.ColorMirrorDisabled = 11974326
+        Appearance.ColorMirrorDisabledTo = 15921906
+        Appearance.GradientHot = ggVertical
+        Appearance.GradientMirrorHot = ggVertical
+        Appearance.GradientDown = ggVertical
+        Appearance.GradientMirrorDown = ggVertical
+        Appearance.GradientChecked = ggVertical
+        Appearance.TextColorChecked = 3750459
+        Appearance.TextColorDown = 2303013
+        Appearance.TextColorHot = 2303013
+        Appearance.TextColorDisabled = 13948116
+        DropDownSplit = False
+      end
+      object edtRutaAux: TEdit
+        Left = 104
+        Top = 89
+        Width = 273
+        Height = 23
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 7
+      end
+    end
+  end
+  object cbbStyle: TscComboBox
+    Left = 456
+    Top = 4
+    Width = 145
+    Height = 22
+    FluentUIOpaque = False
+    ItemIndex = -1
+    WordBreak = False
+    SelectionStyle = scstStyled
+    SelectionColor = clNone
+    SelectionTextColor = clHighlightText
+    ImageIndex = -1
+    ItemHeight = 16
+    TabOrder = 1
+    Text = 'cbbStyle'
+    StyleKind = scscbDefault
+    ShowFocusRect = True
+    OnChange = cbbStyleChage
+  end
+  object cbbLic2: TscComboBox
+    Left = 774
+    Top = 58
+    Width = 145
+    Height = 22
+    FluentUIOpaque = False
+    ItemIndex = -1
+    WordBreak = False
+    SelectionStyle = scstStyled
+    SelectionColor = clNone
+    SelectionTextColor = clHighlightText
+    ImageIndex = -1
+    ItemHeight = 16
+    TabOrder = 2
+    StyleKind = scscbDefault
+    ShowFocusRect = True
+    OnChange = cbbLic2Change
+  end
+  object chkDev: TCheckBox
+    Left = 774
+    Top = 86
+    Width = 97
+    Height = 17
+    Caption = 'Desarrollador'
+    Checked = True
+    State = cbChecked
+    TabOrder = 3
+    OnClick = chkDevClick
+  end
+  object btnEditarN: TBiosGlowButton
+    Left = 770
+    Top = 125
+    Width = 137
+    Height = 28
+    Hint = 'Modifica los valores y configuraciones de la variable elegida'
+    Anchors = [akTop, akRight]
+    Caption = 'Editar'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ImageIndex = 0
+    Images = dtmImagem.VirtualImageList_bimEdicaoGridAtivo
+    NotesFont.Charset = DEFAULT_CHARSET
+    NotesFont.Color = clWindowText
+    NotesFont.Height = -12
+    NotesFont.Name = 'Tahoma'
+    NotesFont.Style = []
+    ParentFont = False
+    Rounded = True
+    Transparent = True
+    TabOrder = 4
+    OnClick = btnEditarNClick
+    Appearance.BorderColor = 11382963
+    Appearance.BorderColorHot = 11565130
+    Appearance.BorderColorCheckedHot = 11565130
+    Appearance.BorderColorDown = 11565130
+    Appearance.BorderColorChecked = 13744549
+    Appearance.BorderColorDisabled = 13948116
+    Appearance.Color = clWhite
+    Appearance.ColorTo = clWhite
+    Appearance.ColorChecked = 13744549
+    Appearance.ColorCheckedTo = 13744549
+    Appearance.ColorDisabled = clWhite
+    Appearance.ColorDisabledTo = clNone
+    Appearance.ColorDown = 11565130
+    Appearance.ColorDownTo = 11565130
+    Appearance.ColorHot = 16444643
+    Appearance.ColorHotTo = 16444643
+    Appearance.ColorMirror = clWhite
+    Appearance.ColorMirrorTo = clWhite
+    Appearance.ColorMirrorHot = 16444643
+    Appearance.ColorMirrorHotTo = 16444643
+    Appearance.ColorMirrorDown = 11565130
+    Appearance.ColorMirrorDownTo = 11565130
+    Appearance.ColorMirrorChecked = 13744549
+    Appearance.ColorMirrorCheckedTo = 13744549
+    Appearance.ColorMirrorDisabled = clWhite
+    Appearance.ColorMirrorDisabledTo = clNone
+    Appearance.GradientHot = ggVertical
+    Appearance.GradientMirrorHot = ggVertical
+    Appearance.GradientDown = ggVertical
+    Appearance.GradientMirrorDown = ggVertical
+    Appearance.GradientChecked = ggVertical
+    Appearance.TextColorChecked = 3750459
+    Appearance.TextColorDown = 2303013
+    Appearance.TextColorHot = 2303013
+    Appearance.TextColorDisabled = 13948116
+    DropDownSplit = False
+  end
+  object style: TscStyleManager
+    ArrowsType = scsatDefault
+    MenuHookEnabled = True
+    MenuAlphaBlendValue = 255
+    MenuWallpaperIndex = -1
+    MenuBackgroundIndex = -1
+    MenuBackgroundOverContentIndex = -1
+    MenuHeadersSupport = True
+    MenuSelectionStyle = scmssStyled
+    ScaleStyles = True
+    ScaleThemes = False
+    ScaleResources = True
+    ScaleFormBorder = True
+    RTLMode = False
+    SystemShellDialogs = False
+    Left = 400
+    Top = 8
+  end
+  object xmldcmnt: TXMLDocument
+    Left = 568
+    Top = 88
+  end
+  object fldrdlg: TFolderDialog
+    Options = [fdoNewDialogStyle]
+    DialogX = 0
+    DialogY = 0
+    Version = '1.1.4.1'
+    Left = 560
+    Top = 184
+  end
+  object dlgOpen: TOpenDialog
+    Left = 492
+    Top = 186
+  end
+  object tmInit: TTimer
+    Enabled = False
+    Interval = 1
+    OnTimer = tmInitTimer
+    Left = 246
+    Top = 341
+  end
+  object TkDialog: TAdvTaskDialog
+    CommonButtons = []
+    DefaultButton = 0
+    DefaultRadioButton = 200
+    FooterTextColor = clWindowText
+    Options = []
+    Version = '2.2.3.3'
+    OnDialogButtonClick = TkDialogDialogButtonClick
+    OnDialogRadioClick = TkDialogDialogRadioClick
+    Left = 516
+    Top = 298
+  end
+  object tbmConexao: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    Left = 308
+    Top = 186
+    object conexion: TStringField
+      FieldName = 'conexion'
+    end
+    object ruta: TStringField
+      FieldName = 'ruta'
+    end
+    object usuario: TStringField
+      FieldName = 'usuario'
+    end
+    object pass: TStringField
+      FieldName = 'pass'
+    end
+    object id_con: TIntegerField
+      FieldName = 'id_con'
+    end
+    object sel: TBooleanField
+      FieldName = 'sel'
+    end
+    object db: TStringField
+      FieldName = 'bd'
+    end
+    object banco: TStringField
+      FieldName = 'banco'
+    end
+  end
+end
