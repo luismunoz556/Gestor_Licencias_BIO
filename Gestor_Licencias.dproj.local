@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/08/16 17:48:49.000.276,=C:\Users\Luis.Munoz\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/08/17 08:19:41.000.961,=C:\Users\Luis.Munoz\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/12/13 15:43:41.000.929,=C:\Users\Luis.Munoz\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/12/13 15:44:36.000.186,C:\Users\Luis.Munoz\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Luis.Munoz\Desktop\GestorLicencias\Licencias.pas</Transaction>
+    <Transaction>2023/12/13 15:44:36.000.186,C:\Users\Luis.Munoz\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Luis.Munoz\Desktop\GestorLicencias\Licencias.dfm</Transaction>
+    <Transaction>2023/12/13 15:44:40.000.543,C:\Users\Luis.Munoz\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Luis.Munoz\Desktop\GestorLicencias\Project1.dproj</Transaction>
+    <Transaction>2023/12/13 17:14:33.000.236,=C:\Users\Luis.Munoz\Desktop\GestorLicencias\DMImagem.pas</Transaction>
+    <Transaction>2023/12/14 13:11:11.000.001,C:\Users\Luis.Munoz\Desktop\GestorLicencias\Gestor_Licencias.dproj=C:\Users\Luis.Munoz\Desktop\GestorLicencias\Project1.dproj</Transaction>
+    <Transaction>2025/03/19 12:17:47.000.064,=C:\Users\Luis.Munoz\Desktop\GestorLicencias\Unit2.pas</Transaction>
+    <Transaction>2025/03/19 12:19:18.000.624,C:\Users\Luis.Munoz\Desktop\GestorLicencias\Unit2.dfm=C:\Users\Luis.Munoz\Desktop\GestorLicencias\EditConexaoP.dfm</Transaction>
+    <Transaction>2025/03/19 12:19:18.000.624,C:\Users\Luis.Munoz\Desktop\GestorLicencias\Unit2.pas=C:\Users\Luis.Munoz\Desktop\GestorLicencias\EditConexaoP.pas</Transaction>
+  </Transactions>
+</BorlandProject>

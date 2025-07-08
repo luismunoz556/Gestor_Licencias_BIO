@@ -1,0 +1,57 @@
+unit EditConexaoP;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, AdvGlowButton,
+  BiosGlowButton;
+
+type
+  TEditConexao = class(TForm)
+    lblConexion: TLabel;
+    lbUsuario: TLabel;
+    lblPass: TLabel;
+    lblBd: TLabel;
+    edtConexion: TEdit;
+    edtBD: TEdit;
+    edtUsr: TEdit;
+    edtPass: TEdit;
+    btnOk: TBiosGlowButton;
+    procedure FormShow(Sender: TObject);
+    procedure btnOkClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    ip : String;
+    bd : String;
+    usuario : string;
+    pass : string;
+    { Public declarations }
+  end;
+
+var
+  EditConexao: TEditConexao;
+
+implementation
+
+{$R *.dfm}
+
+procedure TEditConexao.btnOkClick(Sender: TObject);
+begin
+   ip := edtConexion.text;
+   bd := edtBD.Text;
+   usuario := edtUsr.Text;
+   pass := edtPass.Text	;
+   modalresult := mrOk;
+end;
+
+procedure TEditConexao.FormShow(Sender: TObject);
+begin
+   edtConexion.Text	:= ip;
+   edtBD.Text  := bd;
+   edtUsr.Text  := usuario;
+   edtPass.Text := pass;
+end;
+
+end.
