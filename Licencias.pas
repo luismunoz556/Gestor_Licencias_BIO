@@ -70,6 +70,9 @@ type
     procedure TkDialogDialogRadioClick(Sender: TObject; ButtonID: Integer);
     procedure TkDialogDialogButtonClick(Sender: TObject; ButtonID: Integer);
     procedure btnEditarNClick(Sender: TObject);
+    procedure ggCanEditCell(Sender: TObject; ARow, ACol: Integer;
+      var CanEdit: Boolean);
+    procedure ggClick(Sender: TObject);
 
 
   private
@@ -88,6 +91,7 @@ type
     function DescriptografarSenha(ASenha: AnsiString): AnsiString;
     function IsSenhaCriptografada(ASenha: AnsiString): Boolean;
     function CriptografarSenha(ASenha: AnsiString): AnsiString;
+    procedure MostraReg;
 
     { Private declarations }
   public
@@ -106,6 +110,7 @@ var
   bDev       : Boolean;
   FCriptografar: Boolean;
   bPrimera   : Boolean;
+
 implementation
 
 {$R *.dfm}
@@ -716,6 +721,19 @@ begin
 
 end;
 
+procedure TForm1.ggCanEditCell(Sender: TObject; ARow, ACol: Integer;
+  var CanEdit: Boolean);
+begin
+ if ACol <> 5 then
+    CanEdit := False;
+end;
+
+procedure TForm1.ggClick(Sender: TObject);
+begin
+   if gg.Col = 3 then
+      MostraReg;
+end;
+
 procedure TForm1.ggClickCell(Sender: TObject; ARow, ACol: Integer);
 begin
    if ACol = 3 then
@@ -729,30 +747,11 @@ begin
 end;
 
 procedure TForm1.ggDblClick(Sender: TObject);
-var sSis,sVer : String;
-iEsp :Integer;
+
 begin
    LimpaData;
    pgcLicencias.ActivePage := EdicionAplicaciones;
-   if gg.rowcount > 0 then
-      begin
-         iPosOri  := gg.Row;
-         iEsp := Pos(' ',gg.Cells[2,gg.Row]);
-         if bDev then
-            begin
-               sSis := Copy(gg.Cells[2,gg.Row],0,iEsp-1);
-               sVer := Copy(gg.Cells[2,gg.Row],iEsp+1);
-
-               cbbVersion.Text     := sVer;
-            end
-         else
-            sSis := gg.Cells[2,gg.Row];
-         edtRutaMaestra.Text := gg.Cells[0,gg.Row];
-         cbbSistema.Text     :=  sSis;
-         cbbSistemaChange(Sender);
-         cbbLicencia.Text	   := gg.Cells[3,gg.Row];
-         edtRutaAux.Text  := gg.Cells[1,gg.Row];
-      end;
+   MostraReg;
    cbbLic2.Visible  := False;
 end;
 
@@ -799,6 +798,32 @@ begin
    Result.FieldDefs.Add('STR_4', ftString, 100, False);
    Result.FieldDefs.Add('STR_5', ftString, 100, False);
    Result.IndexDefs.Add('INDEXNOME', 'NOME', [ixUnique, ixPrimary, ixCaseInsensitive]);
+end;
+
+procedure TForm1.MostraReg;
+var sSis,sVer : String;
+iEsp :Integer;
+begin
+     if gg.rowcount > 0 then
+      begin
+         iPosOri  := gg.Row;
+         iEsp := Pos(' ',gg.Cells[2,gg.Row]);
+         if bDev then
+            begin
+               sSis := Copy(gg.Cells[2,gg.Row],0,iEsp-1);
+               sVer := Copy(gg.Cells[2,gg.Row],iEsp+1);
+
+               cbbVersion.Text     := sVer;
+            end
+         else
+            sSis := gg.Cells[2,gg.Row];
+         edtRutaMaestra.Text := gg.Cells[0,gg.Row];
+         cbbSistema.Text     :=  sSis;
+         cbbSistemaChange(nil);
+         cbbLicencia.Text	   := gg.Cells[3,gg.Row];
+         edtRutaAux.Text  := gg.Cells[1,gg.Row];
+      end;
+
 end;
 
 end.

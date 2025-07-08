@@ -50,6 +50,7 @@ type
     sel: TBooleanField;
     db: TStringField;
     banco: TStringField;
+    btnEditarN: TBiosGlowButton;
     procedure FormShow(Sender: TObject);
     procedure cbbStyleChage(Sender: TObject);
     procedure ggDblClick(Sender: TObject);
@@ -68,6 +69,9 @@ type
     procedure btnRAuxClick(Sender: TObject);
     procedure TkDialogDialogRadioClick(Sender: TObject; ButtonID: Integer);
     procedure TkDialogDialogButtonClick(Sender: TObject; ButtonID: Integer);
+    procedure btnEditarNClick(Sender: TObject);
+    procedure ggCanEditCell(Sender: TObject; ARow, ACol: Integer;
+      var CanEdit: Boolean);
 
 
   private
@@ -190,7 +194,7 @@ begin
      else if Pos('SGU',sArc)>0  then
         sAux :=  '\sguremote.dbcfg';
 
-     SIdx := 1;
+     SIdx := 0;
      tbmConexao.Close;
      tbmConexao.Open;
      AConexoes := TObjectList.Create;
@@ -288,6 +292,7 @@ begin
                     EditConexao.bd := tbmConexao.FieldByName('bd').AsString;
                     EditConexao.usuario := tbmConexao.FieldByName('usuario').AsString;
                     EditConexao.pass := tbmConexao.FieldByName('pass').AsString;
+                    EditConexao.banco := tbmConexao.FieldByName('banco').AsString;
                     TkDialog.DefaultRadioButton := TkDialog.RadioButtonResult;
                     if EditConexao.showmodal = mrOK then
                        begin
@@ -295,7 +300,7 @@ begin
                           tbmConexao.FieldByName('ruta').AsString :=   EditConexao.ip;
                           tbmConexao.FieldByName('bd').AsString := EditConexao.bd ;
                           tbmConexao.FieldByName('usuario').AsString := EditConexao.usuario;
-                          tbmConexao.FieldByName('pass').AsString :=   EditConexao.pass
+                          tbmConexao.FieldByName('pass').AsString := EditConexao.pass;
                           tbmConexao.Post;
                           retVar := TkDialog.Execute;
 
@@ -304,10 +309,12 @@ begin
                  end;
               if retVar = 101 then
                  exit;
+
               retVar := TkDialog.RadioButtonResult;
+              tbmConexao.locate('id_con',retVar-200,[]);
               strCli := tbmConexao.FieldByName('conexion').AsString;//sListNova.Strings[retVar-200];
               SClient.First;
-              TkDialog.Free;
+              //TkDialog.Free;
               while not SClient.Eof do
                  begin
                     SClient.Edit;
@@ -322,7 +329,7 @@ begin
               SClient.FieldByName('PRI_SERVIDOR').AsString := tbmConexao.FieldByName('ruta').AsString;
               SClient.FieldByName('PRI_BASE').AsString :=  tbmConexao.FieldByName('bd').AsString;
               SClient.FieldByName('PRI_USUARIO').AsString := tbmConexao.FieldByName('usuario').AsString;
-              SClient.FieldByName('PRI_SENHA').AsString := CriptografarSenha(tbmConexao.FieldByName('bd').AsString);
+              SClient.FieldByName('PRI_SENHA').AsString := CriptografarSenha(tbmConexao.FieldByName('pass').AsString);
               SClient.Post;
               Pacote.LoadFromClient('CONEXOES', SClient);
               Pacote.SaveToFile(gg.Cells[0,gg.Row]+'\'+bin+sAux);
@@ -434,6 +441,11 @@ begin
    iPosOri := 0;
    LimpaData;
 
+end;
+
+procedure TForm1.btnEditarNClick(Sender: TObject);
+begin
+   CargaConexion;
 end;
 
 procedure TForm1.AddXml;
@@ -699,8 +711,18 @@ begin
    if Assigned( xmldcmnt ) then
          xmldcmnt.Free;
 
+   edtRutaMaestra.Hint := 'Ruta Maestra de Fuentes, elige la carpeta sin entrar al Bin';
+   cbbVersion.Hint := 'Selecciona el numero de version';
+   cbbSistema.Hint := 'Sistema que esta utilizando';
+   cbbLicencia.Hint:= 'Selecciona la licencia';
 
+end;
 
+procedure TForm1.ggCanEditCell(Sender: TObject; ARow, ACol: Integer;
+  var CanEdit: Boolean);
+begin
+ if ACol <> 5 then
+    CanEdit := False;
 end;
 
 procedure TForm1.ggClickCell(Sender: TObject; ARow, ACol: Integer);

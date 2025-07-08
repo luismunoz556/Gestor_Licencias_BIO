@@ -12,6 +12,9 @@ object Form1: TForm1
   Font.Style = []
   Position = poScreenCenter
   OnShow = FormShow
+  DesignSize = (
+    946
+    451)
   TextHeight = 15
   object lblByName: TLabel
     Left = 8
@@ -25,7 +28,7 @@ object Form1: TForm1
     Top = 32
     Width = 728
     Height = 353
-    ActivePage = VisorLicencias
+    ActivePage = EdicionAplicaciones
     TabOrder = 0
     object VisorLicencias: TTabSheet
       Caption = 'VisorLicencias'
@@ -304,6 +307,8 @@ object Form1: TForm1
         SelectionTextColor = clHighlightText
         ImageIndex = -1
         ItemHeight = 16
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 1
         StyleKind = scscbDefault
         ShowFocusRect = True
@@ -322,6 +327,8 @@ object Form1: TForm1
         SelectionTextColor = clHighlightText
         ImageIndex = -1
         ItemHeight = 16
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 2
         StyleKind = scscbDefault
         ShowFocusRect = True
@@ -344,6 +351,8 @@ object Form1: TForm1
         SelectionTextColor = clHighlightText
         ImageIndex = -1
         ItemHeight = 16
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 3
         StyleKind = scscbDefault
         ShowFocusRect = True
@@ -354,6 +363,8 @@ object Form1: TForm1
         Top = 60
         Width = 273
         Height = 23
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 4
       end
       object btnRuta: TBiosGlowButton
@@ -471,6 +482,8 @@ object Form1: TForm1
         Top = 89
         Width = 273
         Height = 23
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 7
       end
     end
@@ -523,6 +536,68 @@ object Form1: TForm1
     TabOrder = 3
     OnClick = chkDevClick
   end
+  object btnEditarN: TBiosGlowButton
+    Left = 770
+    Top = 125
+    Width = 137
+    Height = 28
+    Hint = 'Modifica los valores y configuraciones de la variable elegida'
+    Anchors = [akTop, akRight]
+    Caption = 'Editar'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ImageIndex = 0
+    Images = dtmImagem.VirtualImageList_bimEdicaoGridAtivo
+    NotesFont.Charset = DEFAULT_CHARSET
+    NotesFont.Color = clWindowText
+    NotesFont.Height = -12
+    NotesFont.Name = 'Tahoma'
+    NotesFont.Style = []
+    ParentFont = False
+    Rounded = True
+    Transparent = True
+    TabOrder = 4
+    OnClick = btnEditarNClick
+    Appearance.BorderColor = 11382963
+    Appearance.BorderColorHot = 11565130
+    Appearance.BorderColorCheckedHot = 11565130
+    Appearance.BorderColorDown = 11565130
+    Appearance.BorderColorChecked = 13744549
+    Appearance.BorderColorDisabled = 13948116
+    Appearance.Color = clWhite
+    Appearance.ColorTo = clWhite
+    Appearance.ColorChecked = 13744549
+    Appearance.ColorCheckedTo = 13744549
+    Appearance.ColorDisabled = clWhite
+    Appearance.ColorDisabledTo = clNone
+    Appearance.ColorDown = 11565130
+    Appearance.ColorDownTo = 11565130
+    Appearance.ColorHot = 16444643
+    Appearance.ColorHotTo = 16444643
+    Appearance.ColorMirror = clWhite
+    Appearance.ColorMirrorTo = clWhite
+    Appearance.ColorMirrorHot = 16444643
+    Appearance.ColorMirrorHotTo = 16444643
+    Appearance.ColorMirrorDown = 11565130
+    Appearance.ColorMirrorDownTo = 11565130
+    Appearance.ColorMirrorChecked = 13744549
+    Appearance.ColorMirrorCheckedTo = 13744549
+    Appearance.ColorMirrorDisabled = clWhite
+    Appearance.ColorMirrorDisabledTo = clNone
+    Appearance.GradientHot = ggVertical
+    Appearance.GradientMirrorHot = ggVertical
+    Appearance.GradientDown = ggVertical
+    Appearance.GradientMirrorDown = ggVertical
+    Appearance.GradientChecked = ggVertical
+    Appearance.TextColorChecked = 3750459
+    Appearance.TextColorDown = 2303013
+    Appearance.TextColorHot = 2303013
+    Appearance.TextColorDisabled = 13948116
+    DropDownSplit = False
+  end
   object style: TscStyleManager
     ArrowsType = scsatDefault
     MenuHookEnabled = True
@@ -571,6 +646,7 @@ object Form1: TForm1
     FooterTextColor = clWindowText
     Options = []
     Version = '2.2.3.3'
+    OnDialogButtonClick = TkDialogDialogButtonClick
     OnDialogRadioClick = TkDialogDialogRadioClick
     Left = 516
     Top = 298
@@ -599,6 +675,15 @@ object Form1: TForm1
     end
     object id_con: TIntegerField
       FieldName = 'id_con'
+    end
+    object sel: TBooleanField
+      FieldName = 'sel'
+    end
+    object db: TStringField
+      FieldName = 'bd'
+    end
+    object banco: TStringField
+      FieldName = 'banco'
     end
   end
 end

@@ -28,7 +28,7 @@ object Form1: TForm1
     Top = 32
     Width = 728
     Height = 353
-    ActivePage = EdicionAplicaciones
+    ActivePage = VisorLicencias
     TabOrder = 0
     object VisorLicencias: TTabSheet
       Caption = 'VisorLicencias'
@@ -56,8 +56,10 @@ object Form1: TForm1
         ParentShowHint = False
         ShowHint = True
         TabOrder = 0
+        OnClick = ggClick
         OnDblClick = ggDblClick
         OnClickCell = ggClickCell
+        OnCanEditCell = ggCanEditCell
         ActiveCellFont.Charset = ANSI_CHARSET
         ActiveCellFont.Color = 4474440
         ActiveCellFont.Height = -16

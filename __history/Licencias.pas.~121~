@@ -50,6 +50,7 @@ type
     sel: TBooleanField;
     db: TStringField;
     banco: TStringField;
+    btnEditarN: TBiosGlowButton;
     procedure FormShow(Sender: TObject);
     procedure cbbStyleChage(Sender: TObject);
     procedure ggDblClick(Sender: TObject);
@@ -68,6 +69,10 @@ type
     procedure btnRAuxClick(Sender: TObject);
     procedure TkDialogDialogRadioClick(Sender: TObject; ButtonID: Integer);
     procedure TkDialogDialogButtonClick(Sender: TObject; ButtonID: Integer);
+    procedure btnEditarNClick(Sender: TObject);
+    procedure ggCanEditCell(Sender: TObject; ARow, ACol: Integer;
+      var CanEdit: Boolean);
+    procedure ggClick(Sender: TObject);
 
 
   private
@@ -86,6 +91,7 @@ type
     function DescriptografarSenha(ASenha: AnsiString): AnsiString;
     function IsSenhaCriptografada(ASenha: AnsiString): Boolean;
     function CriptografarSenha(ASenha: AnsiString): AnsiString;
+    procedure MostraReg;
 
     { Private declarations }
   public
@@ -104,6 +110,7 @@ var
   bDev       : Boolean;
   FCriptografar: Boolean;
   bPrimera   : Boolean;
+
 implementation
 
 {$R *.dfm}
@@ -190,7 +197,7 @@ begin
      else if Pos('SGU',sArc)>0  then
         sAux :=  '\sguremote.dbcfg';
 
-     SIdx := 1;
+     SIdx := 0;
      tbmConexao.Close;
      tbmConexao.Open;
      AConexoes := TObjectList.Create;
@@ -288,6 +295,7 @@ begin
                     EditConexao.bd := tbmConexao.FieldByName('bd').AsString;
                     EditConexao.usuario := tbmConexao.FieldByName('usuario').AsString;
                     EditConexao.pass := tbmConexao.FieldByName('pass').AsString;
+                    EditConexao.banco := tbmConexao.FieldByName('banco').AsString;
                     TkDialog.DefaultRadioButton := TkDialog.RadioButtonResult;
                     if EditConexao.showmodal = mrOK then
                        begin
@@ -304,7 +312,9 @@ begin
                  end;
               if retVar = 101 then
                  exit;
+
               retVar := TkDialog.RadioButtonResult;
+              tbmConexao.locate('id_con',retVar-200,[]);
               strCli := tbmConexao.FieldByName('conexion').AsString;//sListNova.Strings[retVar-200];
               SClient.First;
               //TkDialog.Free;
@@ -322,7 +332,7 @@ begin
               SClient.FieldByName('PRI_SERVIDOR').AsString := tbmConexao.FieldByName('ruta').AsString;
               SClient.FieldByName('PRI_BASE').AsString :=  tbmConexao.FieldByName('bd').AsString;
               SClient.FieldByName('PRI_USUARIO').AsString := tbmConexao.FieldByName('usuario').AsString;
-              SClient.FieldByName('PRI_SENHA').AsString := CriptografarSenha(tbmConexao.FieldByName('bd').AsString);
+              SClient.FieldByName('PRI_SENHA').AsString := CriptografarSenha(tbmConexao.FieldByName('pass').AsString);
               SClient.Post;
               Pacote.LoadFromClient('CONEXOES', SClient);
               Pacote.SaveToFile(gg.Cells[0,gg.Row]+'\'+bin+sAux);
@@ -434,6 +444,11 @@ begin
    iPosOri := 0;
    LimpaData;
 
+end;
+
+procedure TForm1.btnEditarNClick(Sender: TObject);
+begin
+   CargaConexion;
 end;
 
 procedure TForm1.AddXml;
@@ -631,6 +646,7 @@ end;
 procedure TForm1.FormShow(Sender: TObject);
 var i : Integer;
 begin
+   bMostra := false;
    bPrimera := true;
    bDev := True;
    lblByName.Caption  := 'Gestor Licencia V 3.0-By Luis Muñoz';
@@ -699,8 +715,24 @@ begin
    if Assigned( xmldcmnt ) then
          xmldcmnt.Free;
 
+   edtRutaMaestra.Hint := 'Ruta Maestra de Fuentes, elige la carpeta sin entrar al Bin';
+   cbbVersion.Hint := 'Selecciona el numero de version';
+   cbbSistema.Hint := 'Sistema que esta utilizando';
+   cbbLicencia.Hint:= 'Selecciona la licencia';
 
+end;
 
+procedure TForm1.ggCanEditCell(Sender: TObject; ARow, ACol: Integer;
+  var CanEdit: Boolean);
+begin
+ if ACol <> 5 then
+    CanEdit := False;
+end;
+
+procedure TForm1.ggClick(Sender: TObject);
+begin
+   if gg.Col = 3 then
+      MostraReg;
 end;
 
 procedure TForm1.ggClickCell(Sender: TObject; ARow, ACol: Integer);
@@ -716,31 +748,11 @@ begin
 end;
 
 procedure TForm1.ggDblClick(Sender: TObject);
-var sSis,sVer : String;
-iEsp :Integer;
+
 begin
    LimpaData;
    pgcLicencias.ActivePage := EdicionAplicaciones;
-   if gg.rowcount > 0 then
-      begin
-         iPosOri  := gg.Row;
-         iEsp := Pos(' ',gg.Cells[2,gg.Row]);
-         if bDev then
-            begin
-               sSis := Copy(gg.Cells[2,gg.Row],0,iEsp-1);
-               sVer := Copy(gg.Cells[2,gg.Row],iEsp+1);
-
-               cbbVersion.Text     := sVer;
-            end
-         else
-            sSis := gg.Cells[2,gg.Row];
-         edtRutaMaestra.Text := gg.Cells[0,gg.Row];
-         cbbSistema.Text     :=  sSis;
-         cbbSistemaChange(Sender);
-         cbbLicencia.Text	   := gg.Cells[3,gg.Row];
-         edtRutaAux.Text  := gg.Cells[1,gg.Row];
-      end;
-   cbbLic2.Visible  := False;
+   MostraReg;
 end;
 
 function TForm1.CriarClientDataSet: TClientDataSet;
@@ -786,6 +798,32 @@ begin
    Result.FieldDefs.Add('STR_4', ftString, 100, False);
    Result.FieldDefs.Add('STR_5', ftString, 100, False);
    Result.IndexDefs.Add('INDEXNOME', 'NOME', [ixUnique, ixPrimary, ixCaseInsensitive]);
+end;
+
+procedure TForm1.MostraReg;
+var sSis,sVer : String;
+iEsp :Integer;
+begin
+     if gg.rowcount > 0 then
+      begin
+         iPosOri  := gg.Row;
+         iEsp := Pos(' ',gg.Cells[2,gg.Row]);
+         if bDev then
+            begin
+               sSis := Copy(gg.Cells[2,gg.Row],0,iEsp-1);
+               sVer := Copy(gg.Cells[2,gg.Row],iEsp+1);
+
+               cbbVersion.Text     := sVer;
+            end
+         else
+            sSis := gg.Cells[2,gg.Row];
+         edtRutaMaestra.Text := gg.Cells[0,gg.Row];
+         cbbSistema.Text     :=  sSis;
+         cbbSistemaChange(nil);
+         cbbLicencia.Text	   := gg.Cells[3,gg.Row];
+         edtRutaAux.Text  := gg.Cells[1,gg.Row];
+      end;
+   cbbLic2.Visible  := False;
 end;
 
 end.
