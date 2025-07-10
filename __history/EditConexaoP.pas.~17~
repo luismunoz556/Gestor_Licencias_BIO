@@ -55,8 +55,6 @@ begin
    bd := edtBD.Text;
    usuario := edtUsr.Text;
    pass := edtPass.Text	;
-   if banco = 'Oracle' then
-      bd := ip;
    modalresult := mrOk;
 end;
 

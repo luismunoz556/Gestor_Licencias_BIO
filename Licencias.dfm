@@ -683,9 +683,11 @@ object Form1: TForm1
     end
     object db: TStringField
       FieldName = 'bd'
+      Size = 30
     end
     object banco: TStringField
       FieldName = 'banco'
+      Size = 30
     end
   end
 end
