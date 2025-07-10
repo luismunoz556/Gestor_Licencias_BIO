@@ -73,6 +73,7 @@ begin
          fcon.DriverName       := 'Ora';
          fcon.Params.DriverID  := 'Ora';
          ip := '';
+         edtConexion.Text := '';
       end
    else if banco = 'FireBird' then
       begin
@@ -85,7 +86,7 @@ begin
          fcon.Params.DriverID  := 'MySQL';
       end;
    idx := fcon.Params.IndexOfName('Server');
-   fcon.Params[idx]      := 'Server=' + ip;
+   fcon.Params[idx]      := 'Server=' + edtConexion.Text;
    fcon.Params.Database  := edtBD.Text;
    fcon.Params.UserName  := edtUsr.Text;
    fcon.Params.Password  := edtPass.Text;

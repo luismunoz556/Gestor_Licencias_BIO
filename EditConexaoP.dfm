@@ -10,7 +10,7 @@ object EditConexao: TEditConexao
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  Position = poDesktopCenter
+  Position = poMainFormCenter
   OnShow = FormShow
   TextHeight = 15
   object lblConexion: TLabel
