@@ -298,9 +298,9 @@ begin
                     EditConexao.banco := tbmConexao.FieldByName('banco').AsString;
                     if tbmConexao.FieldByName('banco').AsString = 'Oracle' then
                        begin
-                          EditConexao.edtBD.Visible := false;
-                          EditConexao.lblBd.Visible := false;
-                          EditConexao.lblConexion.Caption := 'TNS';
+                          EditConexao.edtConexion.Visible := false;
+                          EditConexao.lblConexion.Visible := false;
+                          EditConexao.lblBd.Caption := 'TNS';
                        end;
                     TkDialog.DefaultRadioButton := TkDialog.RadioButtonResult;
                     if EditConexao.showmodal = mrOK then
