@@ -540,7 +540,7 @@ object Form1: TForm1
   end
   object btnEditarN: TBiosGlowButton
     Left = 770
-    Top = 125
+    Top = 132
     Width = 137
     Height = 28
     Hint = 'Modifica los valores y configuraciones de la variable elegida'
@@ -598,6 +598,69 @@ object Form1: TForm1
     Appearance.TextColorDown = 2303013
     Appearance.TextColorHot = 2303013
     Appearance.TextColorDisabled = 13948116
+    DropDownSplit = False
+  end
+  object btnDefine: TAdvGlowButton
+    Left = 800
+    Top = 166
+    Width = 161
+    Height = 27
+    Hint = 'Configuraciones / Maestros'
+    Caption = 'Conexiones'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ImageIndex = 1
+    Images = dtmImagem.VirtualImageList_LeftPanel_32
+    NotesFont.Charset = DEFAULT_CHARSET
+    NotesFont.Color = clWindowText
+    NotesFont.Height = -12
+    NotesFont.Name = 'Tahoma'
+    NotesFont.Style = []
+    ParentFont = False
+    Rounded = True
+    Transparent = True
+    WordWrap = False
+    TabOrder = 5
+    Appearance.BorderColor = 11382963
+    Appearance.BorderColorHot = 11565130
+    Appearance.BorderColorCheckedHot = 11565130
+    Appearance.BorderColorDown = 11565130
+    Appearance.BorderColorChecked = 13744549
+    Appearance.BorderColorDisabled = 13948116
+    Appearance.Color = clWhite
+    Appearance.ColorTo = clWhite
+    Appearance.ColorChecked = 13744549
+    Appearance.ColorCheckedTo = 13744549
+    Appearance.ColorDisabled = clWhite
+    Appearance.ColorDisabledTo = clNone
+    Appearance.ColorDown = 11565130
+    Appearance.ColorDownTo = 11565130
+    Appearance.ColorHot = 16444643
+    Appearance.ColorHotTo = 16444643
+    Appearance.ColorMirror = clWhite
+    Appearance.ColorMirrorTo = clWhite
+    Appearance.ColorMirrorHot = 16444643
+    Appearance.ColorMirrorHotTo = 16444643
+    Appearance.ColorMirrorDown = 11565130
+    Appearance.ColorMirrorDownTo = 11565130
+    Appearance.ColorMirrorChecked = 13744549
+    Appearance.ColorMirrorCheckedTo = 13744549
+    Appearance.ColorMirrorDisabled = clWhite
+    Appearance.ColorMirrorDisabledTo = clNone
+    Appearance.GradientHot = ggVertical
+    Appearance.GradientMirrorHot = ggVertical
+    Appearance.GradientDown = ggVertical
+    Appearance.GradientMirrorDown = ggVertical
+    Appearance.GradientChecked = ggVertical
+    Appearance.TextColorChecked = 3750459
+    Appearance.TextColorDown = 2303013
+    Appearance.TextColorHot = 2303013
+    Appearance.TextColorDisabled = 13948116
+    Layout = blGlyphLeftAdjusted
+    DropDownPosition = dpBottom
     DropDownSplit = False
   end
   object style: TscStyleManager

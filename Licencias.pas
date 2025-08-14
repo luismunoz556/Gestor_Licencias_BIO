@@ -51,6 +51,7 @@ type
     db: TStringField;
     banco: TStringField;
     btnEditarN: TBiosGlowButton;
+    btnDefine: TAdvGlowButton;
     procedure FormShow(Sender: TObject);
     procedure cbbStyleChage(Sender: TObject);
     procedure ggDblClick(Sender: TObject);
@@ -73,7 +74,6 @@ type
     procedure ggCanEditCell(Sender: TObject; ARow, ACol: Integer;
       var CanEdit: Boolean);
     procedure ggClick(Sender: TObject);
-
 
   private
     function llenaLicencia(Carpeta, Mascara: String; IncluirPath, IncluirOcultos: Boolean): tStringList;
@@ -215,6 +215,8 @@ begin
         SClient.First;
         if strCli = 'GRUPO GLORIA' then
            strCli := 'COAZUCAR'
+        else if strCli = 'LA DOLCE VISTA' then
+           strCli := 'LDV'
         else if strCli = 'MANUELITA' then
            bCli := true;
 

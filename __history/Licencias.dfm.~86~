@@ -56,8 +56,10 @@ object Form1: TForm1
         ParentShowHint = False
         ShowHint = True
         TabOrder = 0
+        OnClick = ggClick
         OnDblClick = ggDblClick
         OnClickCell = ggClickCell
+        OnCanEditCell = ggCanEditCell
         ActiveCellFont.Charset = ANSI_CHARSET
         ActiveCellFont.Color = 4474440
         ActiveCellFont.Height = -16
@@ -307,6 +309,8 @@ object Form1: TForm1
         SelectionTextColor = clHighlightText
         ImageIndex = -1
         ItemHeight = 16
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 1
         StyleKind = scscbDefault
         ShowFocusRect = True
@@ -325,6 +329,8 @@ object Form1: TForm1
         SelectionTextColor = clHighlightText
         ImageIndex = -1
         ItemHeight = 16
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 2
         StyleKind = scscbDefault
         ShowFocusRect = True
@@ -347,6 +353,8 @@ object Form1: TForm1
         SelectionTextColor = clHighlightText
         ImageIndex = -1
         ItemHeight = 16
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 3
         StyleKind = scscbDefault
         ShowFocusRect = True
@@ -357,6 +365,8 @@ object Form1: TForm1
         Top = 60
         Width = 273
         Height = 23
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 4
       end
       object btnRuta: TBiosGlowButton
@@ -474,6 +484,8 @@ object Form1: TForm1
         Top = 89
         Width = 273
         Height = 23
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 7
       end
     end
@@ -671,9 +683,11 @@ object Form1: TForm1
     end
     object db: TStringField
       FieldName = 'bd'
+      Size = 30
     end
     object banco: TStringField
       FieldName = 'banco'
+      Size = 30
     end
   end
 end
